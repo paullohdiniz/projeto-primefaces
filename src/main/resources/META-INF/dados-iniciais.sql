@@ -1,0 +1,4 @@
+insert into Empresa (id,cnpj,nome_fantasia, razao_social,tipo, data_fundacao) values(1,'70.311.193/0001-87','Mercado João','João Mercado e Distribuidora LTDA', 'LTDA', '2009-11-10');
+insert into Empresa (id,cnpj,nome_fantasia, razao_social,tipo, data_fundacao) values(2,'60.512.193/0001-17','Mercado Maria','Maria Mercado e Distribuidora LTDA', 'LTDA', '2010-12-30');
+insert into Empresa (id,cnpj,nome_fantasia, razao_social,tipo, data_fundacao) values(3,'71.314.141/0001-44','Mercado Pedro','Pedro Mercado e Distribuidora LTDA', 'LTDA', '2012-03-20');
+insert into Empresa (id,cnpj,nome_fantasia, razao_social,tipo, data_fundacao) values(4,'23.897.472/0001-88','Mercado Antonio','Ant Mercado e Distribuidora LTDA', 'LTDA', '2018-01-15');
