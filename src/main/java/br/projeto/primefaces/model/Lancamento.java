@@ -18,8 +18,8 @@ import javax.persistence.TemporalType;
 
 
 
-//@Entity
-//@Table(name = "Lancamento")
+@Entity
+@Table(name = "Lancamento")
 public class Lancamento implements Serializable{
 
 	/**
@@ -27,17 +27,27 @@ public class Lancamento implements Serializable{
 	 */
 	private static final long serialVersionUID = 2372933667865485687L;
 	
-	
-	private Long id;
-	private Pessoa pessoa;
-	private String descricao;
-	private BigDecimal valor;
-	private TipoLancamento tipo;
-	private Date dataVencimento;
-	private Date dataPagamento;
-	
 	@Id
 	@GeneratedValue
+	private Long id;
+	@ManyToOne
+	@JoinColumn(name = "id_pessoa")
+	private Pessoa pessoa;
+	@Column(length = 80, nullable = false)
+	private String descricao;
+	@Column(precision = 10, scale = 2, nullable = false)
+	private BigDecimal valor;
+	@Enumerated(EnumType.STRING)
+	@Column(nullable = false)
+	private TipoLancamento tipo;
+	@Temporal(TemporalType.DATE)
+	@Column(name = "data_vencimento", nullable = false)
+	private Date dataVencimento;
+	@Temporal(TemporalType.DATE)
+	@Column(name = "data_pagamento", nullable = true)
+	private Date dataPagamento;
+	
+
 	public Long getId() {
 		return id;
 	}
@@ -45,8 +55,7 @@ public class Lancamento implements Serializable{
 		this.id = id;
 	}
 	
-	@ManyToOne
-	@JoinColumn(name = "id_pessoa")
+
 	public Pessoa getPessoa() {
 		return pessoa;
 	}
@@ -55,7 +64,7 @@ public class Lancamento implements Serializable{
 		this.pessoa = pessoa;
 	}
 	
-	@Column(length = 80, nullable = false)
+	
 	public String getDescricao() {
 		return descricao;
 	}
@@ -63,7 +72,7 @@ public class Lancamento implements Serializable{
 		this.descricao = descricao;
 	}
 	
-	@Column(precision = 10, scale = 2, nullable = false)
+	
 	public BigDecimal getValor() {
 		return valor;
 	}
@@ -71,8 +80,7 @@ public class Lancamento implements Serializable{
 		this.valor = valor;
 	}
 	
-	@Enumerated(EnumType.STRING)
-	@Column(nullable = false)
+	
 	public TipoLancamento getTipo() {
 		return tipo;
 	}
@@ -80,8 +88,7 @@ public class Lancamento implements Serializable{
 		this.tipo = tipo;
 	}
 	
-	@Temporal(TemporalType.DATE)
-	@Column(name = "data_vencimento", nullable = false)
+
 	public Date getDataVencimento() {
 		return dataVencimento;
 	}
@@ -89,8 +96,7 @@ public class Lancamento implements Serializable{
 		this.dataVencimento = dataVencimento;
 	}
 	
-	@Temporal(TemporalType.DATE)
-	@Column(name = "data_pagamento", nullable = true)
+
 	public Date getDataPagamento() {
 		return dataPagamento;
 	}

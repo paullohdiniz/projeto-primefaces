@@ -15,57 +15,62 @@ import javax.persistence.TemporalType;
 @Table(name = "Empresa")
 public class Empresa implements Serializable{
 	
-	
-	private Long id;
-	private String cnpj;
-	private String nome_fantasia;
-	private String razao_social;
-	private String tipo;
-	private Date data_fundacao;
-	
 	@Id
 	@GeneratedValue
+	private Long id;
+	@Column (name = "cnpj", length = 60, nullable = false)
+	private String cnpj;
+	@Column (name = "nome_fantasia", length = 60, nullable = false)
+	private String nomeFantasia;
+	@Column (name = "razao_social", length = 60, nullable = false)
+	private String razaoSocial;
+	@Column (name = "tipo", length = 60, nullable = false)
+	private String tipo;
+	@Column (name = "data_fundacao")
+	@Temporal(TemporalType.DATE)
+	private Date dataFundacao;
+	
+	
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
 	}
-	@Column (name = "cnpj", length = 60, nullable = false)
+	
 	public String getCnpj() {
 		return cnpj;
 	}
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
-	@Column (name = "nome_fantasia", length = 60, nullable = false)
-	public String getNome_fantasia() {
-		return nome_fantasia;
+	
+	public String getNomeFantasia() {
+		return nomeFantasia;
 	}
-	public void setNome_fantasia(String nome_fantasia) {
-		this.nome_fantasia = nome_fantasia;
+	public void setNomeFantasia(String nomeFantasia) {
+		this.nomeFantasia = nomeFantasia;
 	}
-	@Column (name = "razao_social", length = 60, nullable = false)
-	public String getRazao_social() {
-		return razao_social;
+	
+	public String getRazaoSocial() {
+		return razaoSocial;
 	}
-	public void setRazao_social(String razao_social) {
-		this.razao_social = razao_social;
+	public void setRazaoSocial(String razaoSocial) {
+		this.razaoSocial = razaoSocial;
 	}
-	@Column (name = "tipo", length = 60, nullable = false)
+	
 	public String getTipo() {
 		return tipo;
 	}
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-	@Column (name = "data_fundacao")
-	@Temporal(TemporalType.DATE)
-	public Date getData_fundacao() {
-		return data_fundacao;
+	
+	public Date getDataFundacao() {
+		return dataFundacao;
 	}
-	public void setData_fundacao(Date data_fundacao) {
-		this.data_fundacao = data_fundacao;
+	public void setDataFundacao(Date dataFundacao) {
+		this.dataFundacao = dataFundacao;
 	}
 	
 	
